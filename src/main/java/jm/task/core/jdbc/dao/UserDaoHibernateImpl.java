@@ -14,12 +14,12 @@ public class UserDaoHibernateImpl implements UserDao {
         try (Session session = Util.getSessionFactory().openSession()) {
             session.beginTransaction();
             session.createSQLQuery(
-                    "CREATE TABLE `" + Util.DATABASE_NAME + "`.`"+ Util.TABLE_NAME + "` (" +
-                            "  `id` BIGINT(21) NOT NULL AUTO_INCREMENT," +
-                            "  `name` VARCHAR(45) NOT NULL," +
-                            "  `lastName` VARCHAR(45) NOT NULL," +
-                            "  `age` TINYINT(3) NOT NULL," +
-                            "  PRIMARY KEY (`id`));")
+                    "CREATE TABLE `" + Util.DATABASE_NAME + "`.`"+ Util.TABLE_NAME + "` ("
+                            + "  `id` BIGINT(21) NOT NULL AUTO_INCREMENT,"
+                            + "  `name` VARCHAR(45) NOT NULL,"
+                            + "  `lastName` VARCHAR(45) NOT NULL,"
+                            + "  `age` TINYINT(3) NOT NULL,"
+                            + "  PRIMARY KEY (`id`));")
                     .executeUpdate();
             session.getTransaction().commit();
             System.out.println("Таблица создана");
