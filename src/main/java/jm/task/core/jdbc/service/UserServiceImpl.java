@@ -1,9 +1,6 @@
 package jm.task.core.jdbc.service;
 
-import jm.task.core.jdbc.dao.DaoEnum;
-import jm.task.core.jdbc.dao.UserDao;
-import jm.task.core.jdbc.dao.UserDaoHibernateImpl;
-import jm.task.core.jdbc.dao.UserDaoJDBCImpl;
+import jm.task.core.jdbc.dao.*;
 import jm.task.core.jdbc.model.User;
 
 import java.util.List;
@@ -13,14 +10,6 @@ public class UserServiceImpl implements UserService {
 
     public UserServiceImpl() {
         userDao = new UserDaoJDBCImpl();
-    }
-
-    public UserServiceImpl(DaoEnum daoEnum) {
-        if (daoEnum == DaoEnum.JDBC) {
-            userDao = new UserDaoJDBCImpl();
-        } else {
-            userDao = new UserDaoHibernateImpl();
-        }
     }
 
     public void createUsersTable() {

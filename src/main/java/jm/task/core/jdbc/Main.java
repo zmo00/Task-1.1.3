@@ -1,6 +1,5 @@
 package jm.task.core.jdbc;
 
-import jm.task.core.jdbc.dao.DaoEnum;
 import jm.task.core.jdbc.model.User;
 import jm.task.core.jdbc.service.UserService;
 import jm.task.core.jdbc.service.UserServiceImpl;
@@ -9,9 +8,7 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        DaoEnum daoEnum = DaoEnum.JDBC;
-
-        UserService userService = new UserServiceImpl(daoEnum);
+        UserService userService = new UserServiceImpl();
 
         userService.createUsersTable();
         System.out.println();
